@@ -334,23 +334,23 @@ document.querySelectorAll('.side-menu button').forEach(button => {
     });
 });
 
-function shareOnFacebook() {
+function shareOnTelegram() {
     const url = encodeURIComponent(window.location.href);
-    const facebookShareURL = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-    window.open(facebookShareURL, '_blank', 'width=600,height=400');
+    const telegramShareURL = `https://telegram.me/share/url?url=${url}`;
+    window.open(telegramShareURL, '_blank', 'width=600,height=400');
 }
 
-function shareOnTwitter() {
-    const text = encodeURIComponent("Проверьте SpeachPro, чтобы улучшить свои навыки публичных выступлений!");
+function shareOnVK() {
     const url = encodeURIComponent(window.location.href);
-    const twitterShareURL = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
-    window.open(twitterShareURL, '_blank', 'width=600,height=400');
+    const vkShareURL = `https://vk.com/share.php?url=${url}`;
+    window.open(vkShareURL, '_blank', 'width=600,height=400');
 }
 
-function shareOnLinkedIn() {
+function shareOnWhatsApp() {
+    const text = encodeURIComponent("Проверьте Мастер Речи, чтобы улучшить свои навыки публичных выступлений!");
     const url = encodeURIComponent(window.location.href);
-    const linkedinShareURL = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-    window.open(linkedinShareURL, '_blank', 'width=600,height=400');
+    const whatsappShareURL = `https://api.whatsapp.com/send?text=${text} ${url}`;
+    window.open(whatsappShareURL, '_blank', 'width=600,height=400');
 }
 
 function copyShareLink() {
