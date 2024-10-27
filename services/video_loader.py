@@ -1,6 +1,15 @@
-import tempfile
+import cv2
 
-def save_uploaded_video(uploaded_file):
-    with tempfile.NamedTemporaryFile(delete=False) as temp_video:
-        temp_video.write(uploaded_file.read())
-        return temp_video.name
+def load_video_frames(video_path):
+
+    cap = cv2.VideoCapture(video_path)
+    if not cap.isOpened():
+        raise ValueError("Не удалось открыть видеофайл")
+
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            break
+        yield frame
+
+    cap.release()
