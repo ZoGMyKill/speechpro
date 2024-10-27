@@ -160,8 +160,8 @@
                 </ul>
             </div>
             <div id="account-info" class="home-content" style="display:none;">
-                <h2>Ваш Аккаунт</h2>
-                <p>Добро пожаловать в ваш аккаунт Мастера Речи!</p>
+                <h2>Ваш личный кабинет</h2>
+                <p>Добро пожаловать в ваш аккаунт SpeachPro!</p>
                 <ul>
                     <li><strong>Имя:</strong> John Doe</li>
                     <li><strong>Электронная почта:</strong> john.doe@example.com</li>
@@ -171,26 +171,17 @@
                 <button class="btn" onclick="logOut()">Выйти</button>
             </div>
             <div id="share-page" class="home-content" style="display:none;">
-                <h2>Поделиться на Мастере Речи</h2>
+                <h2>Отправить свою транскрипцию другу</h2>
                 <p>Поделитесь своими достижениями и пригласите других улучшить свои навыки публичных выступлений с помощью SpeachPro!</p>
                 <div class="share-buttons">
-                    <button class="btn btn-share btn-facebook" onclick="shareOnFacebook()">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.407 .593 24 1.324 24H12.82V14.708H9.692v-3.62h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.794.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.764v2.313h3.587l-.467 3.62h-3.12V24h6.116C23.407 24 24 23.407 24 22.676V1.324C24 .593 23.407 0 22.676 0z"/>
-                        </svg>
-                        Facebook
+                    <button class="btn btn-share btn-telegram" onclick="shareOnTelegram()">
+                        Telegram
                     </button>
-                    <button class="btn btn-share btn-twitter" onclick="shareOnTwitter()">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.555-2.005.959-3.127 1.184A4.916 4.916 0 0 0 16.616 3c-2.73 0-4.944 2.215-4.944 4.943 0 .388.044.764.128 1.124C7.728 8.847 4.1 6.906 1.671 3.149a4.822 4.822 0 0 0-.666 2.475c0 1.708.87 3.213 2.188 4.096a4.904 4.904 0 0 1-2.229-.616v.061c0 2.385 1.693 4.374 3.946 4.828a4.996 4.996 0 0 1-2.224.084c.63 1.956 2.445 3.377 4.6 3.417A9.867 9.867 0 0 1 0 19.54a13.945 13.945 0 0 0 7.548 2.212c9.057 0 14.01-7.513 14.01-14.01 0-.213-.005-.425-.014-.636A10.012 10.012 0 0 0 24 4.557z"/>
-                        </svg>
-                        Twitter
+                    <button class="btn btn-share btn-vk" onclick="shareOnVK()">
+                        VK
                     </button>
-                    <button class="btn btn-share btn-linkedin" onclick="shareOnLinkedIn()">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.447 20.452H17.2V14.89c0-1.329-.027-3.038-1.852-3.038-1.854 0-2.136 1.445-2.136 2.939v5.666H9.094V9h2.938v1.561h.041c.41-.778 1.414-1.598 2.908-1.598 3.11 0 3.683 2.048 3.683 4.71v6.77zM5.337 7.433a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zM6.865 20.452H3.81V9h3.055v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.723v20.554C0 23.226.792 24 1.771 24h20.451C23.205 24 24 23.226 24 22.277V1.723C24 .774 23.205 0 22.225 0z"/>
-                        </svg>
-                        LinkedIn
+                    <button class="btn btn-share btn-whatsapp" onclick="shareOnWhatsApp()">
+                        WhatsApp
                     </button>
                 </div>
                 <div class="share-link">

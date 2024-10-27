@@ -277,9 +277,9 @@ function setActivePage(button) {
 function showHomePage() {
     let homeContent = `
         <div id="home-page" class="home-content">
-            <h2>Добро пожаловать в SpeachPro</h2>
+            <h3>Добро пожаловать в SpeachPro</h3>
             <p>SpeachPro - это инструмент на основе ИИ, предназначенный для улучшения ваших навыков публичных выступлений. С нашей продвинутой системой анализа и обратной связи вы можете улучшить подачу речи, сократить использование паразитных слов и укрепить свою уверенность.</p>
-            <h3>Ключевые Функции:</h3>
+            <h2>Ключевые Функции:</h2>
             <ul>
                 <li>Загрузите и проанализируйте свои видео выступления</li>
                 <li>Получите мгновенную обратную связь о своих речевых паттернах</li>
@@ -334,23 +334,23 @@ document.querySelectorAll('.side-menu button').forEach(button => {
     });
 });
 
-function shareOnFacebook() {
+function shareOnTelegram() {
     const url = encodeURIComponent(window.location.href);
-    const facebookShareURL = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-    window.open(facebookShareURL, '_blank', 'width=600,height=400');
+    const telegramShareURL = `https://telegram.me/share/url?url=${url}`;
+    window.open(telegramShareURL, '_blank', 'width=600,height=400');
 }
 
-function shareOnTwitter() {
-    const text = encodeURIComponent("Проверьте SpeachPro, чтобы улучшить свои навыки публичных выступлений!");
+function shareOnVK() {
     const url = encodeURIComponent(window.location.href);
-    const twitterShareURL = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
-    window.open(twitterShareURL, '_blank', 'width=600,height=400');
+    const vkShareURL = `https://vk.com/share.php?url=${url}`;
+    window.open(vkShareURL, '_blank', 'width=600,height=400');
 }
 
-function shareOnLinkedIn() {
+function shareOnWhatsApp() {
+    const text = encodeURIComponent("Проверьте Мастер Речи, чтобы улучшить свои навыки публичных выступлений!");
     const url = encodeURIComponent(window.location.href);
-    const linkedinShareURL = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-    window.open(linkedinShareURL, '_blank', 'width=600,height=400');
+    const whatsappShareURL = `https://api.whatsapp.com/send?text=${text} ${url}`;
+    window.open(whatsappShareURL, '_blank', 'width=600,height=400');
 }
 
 function copyShareLink() {
