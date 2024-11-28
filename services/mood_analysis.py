@@ -1,11 +1,15 @@
 from fer import FER
+import cv2
 
-# Инициализация модели анализа настроений
-emotion_detector = FER(mtcnn=False)
 
 def analyze_mood(frame):
-    result = emotion_detector.top_emotion(frame)
+
+    detector = FER()
+    result = detector.detect_emotions(frame)
+
     if result:
-        mood, _ = result
+        # Извлекаем настроение с наивысшим баллом
+        emotions = result[0]['emotions']
+        mood = max(emotions, key=emotions.get)
         return mood
     return None

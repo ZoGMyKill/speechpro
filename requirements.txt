@@ -1,5 +1,7 @@
 streamlit
 opencv-python-headless
 moviepy
-speechrecognition
+ffmpeg
 fer
+tensorflow
+openai-whisper

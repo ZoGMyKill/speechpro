@@ -1,23 +1,32 @@
+import whisper
 from moviepy.editor import VideoFileClip
-import speech_recognition as sr
+import os
 
 
-def transcribe_audio(video_path):
-    recognizer = sr.Recognizer()
-    temp_audio_path = video_path + ".wav"
+def extract_audio_from_video(video_path):
+
+    video = VideoFileClip(video_path)
+    audio_path = video_path.replace(".mp4", ".wav")
+    video.audio.write_audiofile(audio_path, codec='pcm_s16le')  # Кодек для сохранения в формате wav
+    return audio_path
+
+
+def transcribe_audio(audio_path):
+
+    model = whisper.load_model("base")  # Можно выбрать "tiny", "small", "medium", "large" для других размеров модели
+    result = model.transcribe(audio_path)
+    return result["text"]
+
+
+def transcribe_video_audio(video_path):
 
     # Извлечение аудио из видео
-    video_clip = VideoFileClip(video_path)
-    audio_clip = video_clip.audio
-    audio_clip.write_audiofile(temp_audio_path)
+    audio_path = extract_audio_from_video(video_path)
 
-    # Транскрибация
-    with sr.AudioFile(temp_audio_path) as source:
-        audio_data = recognizer.record(source)
-        try:
-            transcription = recognizer.recognize_google(audio_data, language="ru-RU")
-            return transcription
-        except sr.UnknownValueError:
-            return "Не удалось распознать аудио"
-        except sr.RequestError:
-            return "Ошибка при запросе к сервису транскрибации"
+    # Транскрибация извлеченного аудио
+    transcription = transcribe_audio(audio_path)
+
+    # Удаляем временный аудиофайл
+    os.remove(audio_path)
+
+    return transcription
