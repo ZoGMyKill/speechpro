@@ -18,7 +18,9 @@ def extract_audio_from_video_with_pydub(video_filepath, output_audio_filepath):
     audio = audio.set_channels(1)
     audio = audio.set_frame_rate(16000)
 
-    audio.export(output_audio_filepath, format="wav", parameters=["-acodec", "pcm_s16le"])
+    audio.export(
+        output_audio_filepath, format="wav", parameters=["-acodec", "pcm_s16le"]
+    )
     os.remove(temp_audio_filepath)
 
 
@@ -61,10 +63,12 @@ if uploaded_video is not None:
         st.success("Аудио извлечено из видео!")
 
     # Преобразование аудио в текст
-    model_path = 'model/vosk-model-ru-0.42'
+    model_path = "model/vosk-model-ru-0.42"
 
     with st.spinner("Транскрибация аудио..."):
-        transcription_result = transcribe_audio(output_audio_filepath, model_path, st.empty())
+        transcription_result = transcribe_audio(
+            output_audio_filepath, model_path, st.empty()
+        )
         st.success("Транскрибация завершена!")
 
     if "text" in transcription_result:

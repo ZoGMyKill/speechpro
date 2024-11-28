@@ -3,9 +3,10 @@ import wave
 
 # Укажите путь к вашей модели
 
-model_path = 'model/vosk-model-ru-0.42'
+model_path = "model/vosk-model-ru-0.42"
 
 model = Model(model_path)
+
 
 def transcribe_audio(file_path):
     # Откройте аудиофайл с помощью wave
@@ -25,7 +26,8 @@ def transcribe_audio(file_path):
     result = rec.FinalResult()
     return result
 
-audio_file_path = 'files/output_audio.wav'  # Замените на путь к вашему аудиофайлу
+
+audio_file_path = "files/output_audio.wav"  # Замените на путь к вашему аудиофайлу
 text = transcribe_audio(audio_file_path)
 # print(text)
 
