@@ -1,11 +1,11 @@
+import json
+import os
+import wave
+
 import streamlit as st
 from moviepy.editor import VideoFileClip
 from pydub import AudioSegment
-import os
-from vosk import Model, KaldiRecognizer
-import wave
-import json
-import time
+from vosk import KaldiRecognizer, Model
 
 
 # Функция для извлечения аудио из видео с логированием
@@ -26,6 +26,7 @@ def extract_audio_from_video_with_pydub(video_filepath, output_audio_filepath):
 
 # Функция для преобразования аудио в текст с логированием
 def transcribe_audio(file_path, model_path, log_text):
+
     model = Model(model_path)
     wf = wave.open(file_path, "rb")
     rec = KaldiRecognizer(model, wf.getframerate())

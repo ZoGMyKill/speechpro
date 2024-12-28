@@ -1,9 +1,10 @@
-import cv2
-from fer import FER
-import streamlit as st
 import tempfile
 
-# Загрузка модели для детектирования лиц (может потребоваться предварительная установка)
+import cv2
+import streamlit as st
+from fer import FER
+
+# Загрузка модели для детектирования лиц
 face_cascade = cv2.CascadeClassifier(
     cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 )
