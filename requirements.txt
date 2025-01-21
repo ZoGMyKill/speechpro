@@ -2,4 +2,5 @@ streamlit
 requests
 moviepy
 pydub
-vosk
+whisperx
+torch
