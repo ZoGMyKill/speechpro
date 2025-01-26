@@ -1,6 +1,8 @@
-streamlit
-requests
-moviepy
-pydub
+ffmpeg
 whisperx
-torch
+aniemore
+librosa
+requests
+fastapi
+pydantic
+uvicorn

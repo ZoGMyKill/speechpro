@@ -58,7 +58,7 @@ def extract_audio(input_video_path, output_dir):
 
 
 if __name__ == "__main__":
-    input_video = "../test_files/123.mp4"
+    input_video = "./test_files/test.MOV"
     output_directory = "./temp"
 
     # Сжимаем видео

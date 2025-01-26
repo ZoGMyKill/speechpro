@@ -51,6 +51,20 @@ def analyze_emotions_percentage(audio_file, segment_duration=1.5):
 audio_file = "./temp/audio.wav"
 emotion_percentages = analyze_emotions_percentage(audio_file)
 
+emotion_order = [
+    "anger",
+    "happiness",
+    "enthusiasm",
+    "disgust",
+    "neutral",
+    "fear",
+    "sadness",
+]
+
+# Вывод эмоций в указанном порядке
 print("Эмоции на протяжении всего файла:")
-for emotion, percentage in emotion_percentages.items():
-    print(f"{emotion}: {percentage:.2f}%")
+for emotion in emotion_order:
+    if emotion in emotion_percentages:
+        print(f"{emotion}: {emotion_percentages[emotion]:.2f}")
+    else:
+        print(f"{emotion}: 0.00")  # Если эмоция отсутствует в словаре, выводим 0

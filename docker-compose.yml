@@ -1,0 +1,62 @@
+version: "3.9"
+
+services:
+  dependencies:
+    image: python:3.11-slim
+    volumes:
+      - shared-python-packages:/shared-python-packages
+      - ./requirements.txt:/requirements/requirements.txt:ro
+    working_dir: /app
+    command: >
+      /bin/bash -c "
+      pip install --no-cache-dir -r /requirements/requirements.txt -t /shared-python-packages &&
+      chmod -R 777 /shared-python-packages"
+    build:
+      context: .
+
+  frontend:
+    build:
+      context: ./src/frontend
+    volumes:
+      - shared-python-packages:/shared-python-packages
+    ports:
+      - "8501:8501"
+    depends_on:
+      - dependencies
+
+  backend:
+    build:
+      context: ./src/backend
+    volumes:
+      - shared-python-packages:/shared-python-packages
+    ports:
+      - "8000:8000"
+    depends_on:
+      - dependencies
+
+  transcription:
+    build:
+      context: ./src/transcription
+    volumes:
+      - shared-python-packages:/shared-python-packages
+    depends_on:
+      - dependencies
+
+  emotion_analysis:
+    build:
+      context: ./src/emotion_analysis
+    volumes:
+      - shared-python-packages:/shared-python-packages
+    depends_on:
+      - dependencies
+
+  report:
+    build:
+      context: ./src/report
+    volumes:
+      - shared-python-packages:/shared-python-packages
+    depends_on:
+      - dependencies
+
+volumes:
+  shared-python-packages:
