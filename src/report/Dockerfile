@@ -19,8 +19,5 @@ RUN pip install --no-cache-dir -r /app/requirements.txt
 # Копируем весь код приложения в контейнер
 COPY . /app
 
-# Устанавливаем переменную окружения для API ключа (вообще надо спрятать как-то потом)
-ENV OPENAI_API_KEY=""
-
 # Указываем команду запуска
 CMD ["python", "report.py"]
