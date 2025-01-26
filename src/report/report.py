@@ -3,7 +3,7 @@ import requests
 
 # Настройки для API ChatGPT
 API_URL = "https://api.openai.com/v1/chat/completions"
-API_KEY = os.getenv("OPENAI_API_KEY")
+API_KEY = ""
 
 
 # Функция для получения рекомендаций
